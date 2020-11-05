@@ -8,13 +8,15 @@ if(!empty($_SESSION['admin'])){
 		$kontak = htmlentities($_POST['kontak']);
 		$pemilik = htmlentities($_POST['pemilik']);
 		$id = '1';
+		$id_member=$_SESSION['admin']['id_member'];
 		
 		$data[] = $nama;
 		$data[] = $alamat;
 		$data[] = $kontak;
 		$data[] = $pemilik;
+		$data[] = $id_member;
 		$data[] = $id;
-		$sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=?, nama_pemilik=? WHERE id_toko = ?';
+		$sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=?, nama_pemilik=?,id_member=? WHERE id_toko = ?';
 		$row = $config -> prepare($sql);
 		$row -> execute($data);
 		echo '<script>window.location="../../index.php?page=pengaturan&success=edit-data"</script>';

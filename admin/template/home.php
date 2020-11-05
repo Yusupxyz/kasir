@@ -48,7 +48,7 @@
                       	<div class="col-md-3">
                       		<div class="panel panel-primary">
                       			<div class="panel-heading">
-						  			<h5><i class="fa fa-desktop"></i> Nama Barang</h5>
+						  			<h5><i class="fa fa-desktop"></i> Jumlah Barang</h5>
                       			</div>
                       			<div class="panel-body">
 									<center><h1><?php echo $hasil_barang;?></h1></center>
