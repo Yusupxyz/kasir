@@ -83,11 +83,13 @@
 									<tr style="background:#DFF0D8;color:#333;">
 										<th> No</th>
 										<th> ID Barang</th>
+										<th> Nota</th>
 										<th> Nama Barang</th>
+										<th> Kategori Barang</th>
 										<th style="width:10%;"> Jumlah</th>
 										<th style="width:20%;"> Total</th>
 										<th> Kasir</th>
-										<th> Tanggal Input</th>
+										<th> Tanggal Transaksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -104,7 +106,9 @@
 									<tr>
 										<td><?php echo $no;?></td>
 										<td><?php echo $isi['id_barang'];?></td>
+										<td><?php echo $isi['id_nota'];?></td>
 										<td><?php echo $isi['nama_barang'];?></td>
+										<td><?php echo $isi['nama_kategori'];?></td>
 										<td><?php echo $isi['jumlah'];?> </td>
 										<td>Rp.<?php echo number_format($isi['total']);?>,-</td>
 										<td><?php echo $isi['nm_member'];?></td>

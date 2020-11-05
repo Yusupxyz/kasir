@@ -154,9 +154,10 @@
 
 			
 			function periode_jual($periode){
-				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, member.id_member,
-						member.nm_member from nota 
-					   left join barang on barang.id_barang=nota.id_barang 
+				$sql ="SELECT * from detail_nota 
+					   left join nota on detail_nota.id_nota=nota.id_nota  
+					   left join barang on detail_nota.id_barang=barang.id_barang 
+					   left join kategori on kategori.id_kategori=barang.id_kategori 
 					   left join member on member.id_member=nota.id_member WHERE nota.periode = ?";
 				$row = $this-> db -> prepare($sql);
 				$row -> execute(array($periode));
