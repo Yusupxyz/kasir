@@ -32,6 +32,7 @@
     <meta name="keyword">
 
     <title>Login To Admin</title>
+	<link rel="shortcut icon" href="assets/img/favicon2.ico">
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -49,16 +50,19 @@
     <![endif]-->
   </head>
 
-  <body style="background:#004643;color:#fff;">
+  <body style="background:#527be3;color:#fff;">
 
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
 
-	  <div id="login-page" style="padding-top:3pc;">
-	  	<div class="container">
-		      <form class="form-login" method="POST">
-		        <h2 class="form-login-heading">Aplikasi Kasir</h2>
+	  <div id="login-page" style="padding-top:3pc;" >
+	  	<div class="container" >
+		      <form class="form-login" method="POST" >
+		        <h2 class="form-login-heading" style="background-color:#3399ff; color:black">Aplikasi Kasir
+				<center><img src="assets/img/001-stationery.png" height="50" widht = "50" alt="Logo"></center>
+</h2>
+
 		        <div class="login-wrap">
 		            <input type="text" class="form-control" name="user" placeholder="User ID" autofocus>
 		            <br>

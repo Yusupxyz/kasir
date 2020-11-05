@@ -10,7 +10,7 @@
               <div class="row">
                   <div class="col-lg-9">
 					<div class="row" style="margin-left:1pc;margin-right:1pc;">
-				  <h1>DASHBOARD</h1>
+				  <h1><img src="assets/img/001-stationery.png" height="50" widht = "50" alt="Logo"> DASHBOARD </h1>
 				  <hr>
 				   <?php 
 						$sql=" select * from barang where stok <=3";
@@ -108,7 +108,7 @@
       *********************************************************************************************************************************************************** -->                  
                   
 			<div class="col-lg-3 ds">
-				<div id="calendar" class="mb">
+				<div id="calendar" class="mb" style="background-color:#3399ff; color:black">
 					<div class="panel green-panel no-margin">
 						<div class="panel-body">
 							<div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
@@ -116,7 +116,7 @@
 								<h3 class="popover-title" style="disadding: none;"></h3>
 								<div id="date-popover-content" class="popover-content"></div>
 							</div>
-							<div id="my-calendar"></div>
+							<div id="my-calendar" ></div>
 						</div>
 					</div>
 				</div><!-- / calendar -->
