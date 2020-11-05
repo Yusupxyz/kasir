@@ -133,7 +133,7 @@
 			}
 
 			function jual_row(){
-				$sql ="SELECT SUM(jumlah) as stok FROM nota";
+				$sql ="SELECT SUM(jumlah) as stok FROM detail_nota";
 				$row = $this-> db -> prepare($sql);
 				$row -> execute();
 				$hasil = $row -> fetch();
