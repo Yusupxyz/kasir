@@ -3,7 +3,7 @@
       <footer class="site-footer">
           <div class="text-center">
               <?php echo date('Y');?> - Aplikasi Kasir | 
-              By <a href="" style="color:yellow;font-weight:700;" target="_blank">YH</a>
+              By <a href="" style="color:yellow;font-weight:700;" target="_blank">Zhika</a>
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
