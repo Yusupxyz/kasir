@@ -71,6 +71,10 @@
 									<td>Tanggal Update</td>
 									<td><?php echo $hasil['tgl_update'];?></td>
 								</tr>
+								<tr>
+									<td>Admin/User</td>
+									<td><?php echo $hasil['nm_member'];?></td>
+								</tr>
 						</table>
 						<div class="clearfix" style="padding-top:16%;"></div>
 				  </div>

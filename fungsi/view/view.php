@@ -54,8 +54,9 @@
 			}
 
 			function barang_edit($id){
-				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
-						from barang inner join kategori on barang.id_kategori = kategori.id_kategori
+				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori, member.*
+						from barang inner join kategori on barang.id_kategori = kategori.id_kategori left join
+						member on barang.id_member = member.id_member
 						where id_barang=?";
 				$row = $this-> db -> prepare($sql);
 				$row -> execute(array($id));

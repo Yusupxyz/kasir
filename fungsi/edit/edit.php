@@ -62,7 +62,8 @@ if(!empty($_SESSION['admin'])){
 		$satuan = htmlentities($_POST['satuan']);
 		$stok = htmlentities($_POST['stok']);
 		$tgl = htmlentities($_POST['tgl']);
-		
+		$id_member=$_SESSION['admin']['id_member'];
+
 		$data[] = $kategori;
 		$data[] = $nama;
 		$data[] = $merk;
@@ -71,11 +72,13 @@ if(!empty($_SESSION['admin'])){
 		$data[] = $satuan;
 		$data[] = $stok;
 		$data[] = $tgl;
+		$data[] = $id_member;
 		$data[] = $id;
+
 		$sql = 'UPDATE barang SET id_kategori=?, nama_barang=?, merk=?, 
-				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?  WHERE id_barang=?';
+				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?, id_member=?  WHERE id_barang=?';
 		$row = $config -> prepare($sql);
-		$row -> execute($data);
+		$row -> execute($data) or die(print_r($row->errorInfo(), true));
 		echo '<script>window.location="../../index.php?page=barang/edit&barang='.$id.'&success=edit-data"</script>';
 	}
 
