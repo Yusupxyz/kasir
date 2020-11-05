@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("Asia/Jakarta");
-error_reporting(0);
+error_reporting(1);
 
 	// sesuaikan dengan server anda
 	$host 	= 'localhost:3307'; // host server

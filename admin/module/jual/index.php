@@ -121,29 +121,29 @@
 														$tgl_input = $_POST['tgl_input'];
 														$periode = $_POST['periode'];
 														$jumlah_dipilih = count($id_barang);
+														$tgl = $_POST['tanggal'];
+
+														$sql = "SELECT max(id_nota) AS last FROM nota WHERE tanggal_input LIKE '$tgl%'";
+														$row = $config-> prepare($sql);
+														$row -> execute();
+														$hasil = $row -> fetch();
+														$date = date('Y-m-d');
+														$lastNoTransaksi = $hasil['last'];
+														$lastNoUrut = substr($lastNoTransaksi, 13, 4); 
+														$nextNoUrut = $lastNoUrut + 1;
+
+														$nextNoTransaksi = 'TAA'.$date.sprintf('%04s', $nextNoUrut);
+														$d = array($nextNoTransaksi,$id_member[0],$tgl,$periode);
+														$sql = "INSERT INTO nota (id_nota,id_member,tanggal_input,periode) VALUES(?,?,?,?)";
+														$row = $config->prepare($sql);
+														$row->execute($d) or die(print_r($row->errorInfo(), true));
 														
 														for($x=0;$x<$jumlah_dipilih;$x++){
 
-															$d = array($id_barang[$x],$id_member[$x],$jumlah[$x],$total[$x],$tgl_input[$x],$periode[$x]);
-															$sql = "INSERT INTO nota (id_barang,id_member,jumlah,total,tanggal_input,periode) VALUES(?,?,?,?,?,?)";
+															$e = array($id_barang[$x],$nextNoTransaksi,$jumlah[$x],$total[$x]);
+															$sql = "INSERT INTO detail_nota (id_barang,id_nota,jumlah,total) VALUES(?,?,?,?)";
 															$row = $config->prepare($sql);
-															$row->execute($d);
-
-															// ubah stok barang
-															$sql_barang = "SELECT * FROM barang WHERE id_barang = ?";
-															$row_barang = $config->prepare($sql_barang);
-															$row_barang->execute(array($id_barang[$x]));
-															$hsl = $row_barang->fetch();
-															
-															$stok = $hsl['stok'];
-															$idb  = $hsl['id_barang'];
-
-															$total_stok = $stok - $jumlah[$x];
-															echo $total_stok;
-															$sql_stok = "UPDATE barang SET stok = ? WHERE id_barang = ?";
-															$row_stok = $config->prepare($sql_stok);
-															$row_stok->execute(array($total_stok, $idb));
-															
+															$row->execute($e) or die(print_r($row->errorInfo(), true));
 														}
 														echo '<script>alert("Belanjaan Berhasil Di Bayar !");</script>';
 													}else{
@@ -153,15 +153,16 @@
 											}
 											?>
 											<form method="POST" action="index.php?page=jual&nota=yes#kasirnya">
-											
+
 												<?php foreach($hasil_penjualan as $isi){;?>
 													<input type="hidden" name="id_barang[]" value="<?php echo $isi['id_barang'];?>">
 													<input type="hidden" name="id_member[]" value="<?php echo $isi['id_member'];?>">
 													<input type="hidden" name="jumlah[]" value="<?php echo $isi['jumlah'];?>">
 													<input type="hidden" name="total1[]" value="<?php echo $isi['total'];?>">
-													<input type="hidden" name="tgl_input[]" value="<?php echo $isi['tanggal_input'];?>">
-													<input type="hidden" name="periode[]" value="<?php echo date('m-Y');?>">
 												<?php $no++; }?>
+												<input type="hidden" name="periode" value="<?php echo date('m-Y');?>">
+												<input type="hidden" name="tanggal" value="<?php echo date("j F Y");?>" >
+
 												<tr>
 													<td>Total Semua  </td>
 													<td><input type="text" class="form-control" name="total" value="<?php echo $total_bayar;?>"></td>

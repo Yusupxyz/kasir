@@ -47,14 +47,15 @@ if(!empty($_SESSION['admin'])){
 		$kasir =  $_GET['id_kasir'];
 		$jumlah = '0';
 		$total = '0';
-		$tgl = date("j F Y, G:i");
+		// $tgl = date("j F Y, G:i");
 		
 		$data1[] = $id;
 		$data1[] = $kasir;
 		$data1[] = $jumlah;
 		$data1[] = $total;
-		$data1[] = $tgl;
-		$sql1 = 'INSERT INTO penjualan (id_barang,id_member,jumlah,total,tanggal_input) VALUES (?,?,?,?,?)';
+		// $data1[] = $tgl;
+		var_dump($data1);
+		$sql1 = 'INSERT INTO penjualan (id_barang,id_member,jumlah,total) VALUES (?,?,?,?)';
 		$row1 = $config -> prepare($sql1);
 		$row1 -> execute($data1);
  		echo '<script>window.location="../../index.php?page=jual&success=tambah-data"</script>';
