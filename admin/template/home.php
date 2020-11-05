@@ -65,7 +65,7 @@
 						  			<h5><i class="fa fa-desktop"></i> Stok Barang</h5>
                       			</div>
                       			<div class="panel-body">
-									<center><h1><?php echo $stok['jml'];?></h1></center>
+									<center><h1><?php echo $stok['jml']==null?'0':$stok['jml'];?></h1></center>
 								</div>
 								<div class="panel-footer">
 									<h4 style="font-size:15px;font-weight:700;"><a href='index.php?page=barang'>Tabel Barang  <i class='fa fa-angle-double-right'></i></a></h4>
@@ -79,7 +79,7 @@
 						  			<h5><i class="fa fa-desktop"></i> Telah Terjual</h5>
                       			</div>
                       			<div class="panel-body">
-									<center><h1><?php echo $jual['stok'];?></h1></center>
+									<center><h1><?php echo $jual['stok']==null?'0':$jual['stok'];?></h1></center>
 								</div>
 								<div class="panel-footer">
 									<h4 style="font-size:15px;font-weight:700;font-weight:700;"><a href='index.php?page=laporan'>Tabel laporan  <i class='fa fa-angle-double-right'></i></a></h4>
